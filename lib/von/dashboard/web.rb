@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/reloader'
 
 module Von
   module Dashboard
