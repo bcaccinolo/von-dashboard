@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency('sinatra')
   spec.add_dependency "sinatra-contrib"
   spec.add_dependency('von')
+  spec.add_dependency('rickshaw_rails')
 end
 
 # Reference documentation: http://docs.rubygems.org/read/chapter/20
