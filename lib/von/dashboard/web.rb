@@ -7,11 +7,6 @@ module Von
 
       configure :development do
         register Sinatra::Reloader # reload code when we develop
-
-        # For easier local development (act as production):
-        # set :raise_errors, false
-        # set :show_exceptions, false
-        # set :dump_errors, false
       end
 
       get '/' do
