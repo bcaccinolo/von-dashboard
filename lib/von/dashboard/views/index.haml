@@ -1,0 +1,43 @@
+!!! strict
+%html.no-js{:lang => "da-DK", "xml:lang" => "da-DK", :xmlns => "http://www.w3.org/1999/xhtml", :'xmlns:og' => "http://ogp.me/ns#" }
+
+  %head
+    %script{:type => "text/javascript", :src  => "/assets/jquery.js"}
+    %script{:type => "text/javascript", :src  => "/assets/d3.v2.js" }
+    %script{:type => "text/javascript", :src  => "/assets/rickshaw.js"}
+    %link{:href => "/assets/rickshaw.css", :rel => "stylesheet", :type => "text/css" }
+
+  %body
+
+    %h1 Von Dashboard
+
+    - Von.config.currents.keys.each do |counter|
+
+      %h3= "Counter #{counter}"
+
+      - Von.config.periods[counter].map(&:time_unit).each do |period|
+
+        %h3= "Period #{period}"
+
+        - id = "chart_#{counter}_#{period}"
+
+        %div{id:id}
+        :javascript
+          $(document).ready(function() {
+            var graph = new Rickshaw.Graph( {
+                element: document.querySelector("##{id}"),
+                width: 600,
+                height: 200,
+                series: [{
+                    color: 'steelblue',
+                    data: JSON.parse('#{Von.to_rickshaw(counter, period)}'),
+                    name: "#{period}"
+                }]
+            });
+
+            new Rickshaw.Graph.Axis.Time( { graph: graph } );
+            new Rickshaw.Graph.HoverDetail( { graph: graph } );
+            graph.render();
+
+          })
+
