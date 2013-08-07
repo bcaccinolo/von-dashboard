@@ -1,6 +1,6 @@
 # Von::Dashboard
 
-TODO: Write a gem description
+Dashboard interface for Von https://github.com/blahed/von
 
 ## Installation
 
@@ -18,7 +18,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Add this rack application to your Rails routes:
+
+```ruby
+mount Von::Dashboard::Web, :at => "von"
+```
+
+You can now reach it from `HOSTNAME/von`.
+
+
+
 
 ## Contributing
 
