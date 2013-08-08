@@ -12,35 +12,42 @@
 
   %body
 
-    %h1 Von Dashboard
+    .header
+      %h1 Von Dashboard
 
-    - Von.config.currents.keys.each do |counter|
+    #main
 
-      %h3= "Counter #{counter}"
+      - Von.config.currents.keys.each do |counter|
+        .experiment
+          .experiment-header
+            %h2= counter
 
-      - Von.config.periods[counter].map(&:time_unit).each do |period|
+          - Von.config.periods[counter].map(&:time_unit).each do |period|
 
-        %h3= "Period #{period}"
+            .experiment-header
+              %h2= "Period #{period}"
 
-        - id = "chart_#{counter}_#{period}"
+            - id = "chart_#{counter}_#{period}"
 
-        %div{id:id}
-        :javascript
-          $(document).ready(function() {
-            var graph = new Rickshaw.Graph( {
-                element: document.querySelector("##{id}"),
-                width: 600,
-                height: 200,
-                series: [{
-                    color: 'steelblue',
-                    data: JSON.parse('#{Von.to_rickshaw(counter, period)}'),
-                    name: "#{period}"
-                }]
-            });
+            %div{id:id}
+            :javascript
+              $(document).ready(function() {
+                var graph = new Rickshaw.Graph( {
+                    element: document.querySelector("##{id}"),
+                    width: 600,
+                    height: 200,
+                    series: [{
+                        color: 'steelblue',
+                        data: JSON.parse('#{Von.to_rickshaw(counter, period)}'),
+                        name: "#{period}"
+                    }]
+                });
 
-            new Rickshaw.Graph.Axis.Time( { graph: graph } );
-            new Rickshaw.Graph.HoverDetail( { graph: graph } );
-            graph.render();
+                new Rickshaw.Graph.Axis.Time( { graph: graph } );
+                new Rickshaw.Graph.HoverDetail( { graph: graph } );
+                graph.render();
 
-          })
+              })
 
+    #footer
+      Powered by sinatra
