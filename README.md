@@ -2,6 +2,9 @@
 
 Dashboard interface for Von https://github.com/blahed/von
 
+[![screenshot](https://raw.github.com/bcaccinolo/von-dashboard/master/doc/screenshot.png)](#demo)
+
+
 ## Installation
 
 Add this line to your application's Gemfile:
