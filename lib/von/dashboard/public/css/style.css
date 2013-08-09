@@ -189,9 +189,10 @@ body {
 
 .experiment .experiment-period {
   background: #f9f9f9;
-  border-top:1px solid #fff;
   overflow:hidden;
   padding:0 10px;
+  border-left: 3px solid #E0E0E0;
+  border-top:1px solid #fff;
 }
 
 .experiment h2 {
