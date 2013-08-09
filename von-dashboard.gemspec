@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["benoit.caccinolo@gmail.com"]
   spec.description   = "Von dashboard"
   spec.summary       = "Von dashboard using Rickshaw"
-  spec.homepage      = ""
+  spec.homepage      = "http://github.com/bcaccinolo/von-dashboard"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
