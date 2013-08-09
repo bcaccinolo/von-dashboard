@@ -187,6 +187,9 @@ body {
   padding:0 10px;
 }
 
+.experiment .experiment-header {
+}
+
 .experiment h2 {
   color:#888;
   margin: 12px 0 12px 0;
