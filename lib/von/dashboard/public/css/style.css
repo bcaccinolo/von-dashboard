@@ -187,7 +187,7 @@ body {
   padding:0 10px;
 }
 
-.experiment .experiment-header {
+.experiment .experiment-period {
   background: #f4f4f4;
   background: -webkit-gradient(linear, left top, left bottom,
                 color-stop(0%,#f4f4f4),
